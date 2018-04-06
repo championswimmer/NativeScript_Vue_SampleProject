@@ -11,7 +11,7 @@ const router = new VueRouter({
   pageRouting: true,
   routes: [
     {
-      path: '/home',
+      path: '/',
       component: Home,
       meta: {
         title: 'Home',
@@ -31,10 +31,10 @@ const router = new VueRouter({
         title: 'Counter',
       },
     },
-    {path: '*', redirect: '/home'},
+    {path: '*', redirect: '/'},
   ],
 });
 
-router.replace('/home');
+router.replace('/');
 
 module.exports = router;

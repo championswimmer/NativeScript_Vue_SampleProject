@@ -59,8 +59,10 @@ const config = (platform, launchArgs) => {
         {
           test: /\.ts$/,
           exclude: /(node_modules)/,
-          enforce: 'pre',
-          loader: 'ts-loader'
+          loader: 'ts-loader',
+          options: {
+            appendTsSuffixTo: [/\.vue$/]
+          }
         },
         {
           test: /\.css$/,
@@ -77,8 +79,8 @@ const config = (platform, launchArgs) => {
           options: {
             loaders: {
               css: cssLoader,
-              scss: scssLoader,
-            },
+              scss: scssLoader
+            }
           },
         },
       ],

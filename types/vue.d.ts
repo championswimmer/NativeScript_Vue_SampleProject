@@ -1,12 +1,11 @@
 //Augmenting Vue.js
-import Vue from 'vue';
 
 declare module "vue/types/vue" {
 	interface Vue {
 		/**
 		 * calls the NativeScript application.start() method
 		 */
-		$start(): void;
+		$start(): void
 
 		// /**
 		//  * Registers NativeScript Plugin.
