@@ -42,7 +42,7 @@ const config = (platform, launchArgs) => {
 
     target: NativeScriptVueTarget,
 
-    entry: path.resolve(__dirname, './src/main.js'),
+    entry: path.resolve(__dirname, './src/main.ts'),
 
     output: {
       path: path.resolve(__dirname, './dist/app'),
@@ -56,7 +56,12 @@ const config = (platform, launchArgs) => {
           exclude: /(node_modules)/,
           loader: 'babel-loader',
         },
-
+        {
+          test: /\.ts$/,
+          exclude: /(node_modules)/,
+          enforce: 'pre',
+          loader: 'ts-loader'
+        },
         {
           test: /\.css$/,
           use: cssLoader,
@@ -89,6 +94,8 @@ const config = (platform, launchArgs) => {
         '.css',
         `.${platform}.scss`,
         '.scss',
+        `.${platform}.ts`,
+        '.ts',
         `.${platform}.js`,
         '.js',
         `.${platform}.vue`,
@@ -111,10 +118,10 @@ const config = (platform, launchArgs) => {
       }),
 
       // Minify JavaScript code
-      new webpack.optimize.UglifyJsPlugin({
-        compress: {warnings: false},
-        output: {comments: false},
-      }),
+      // new webpack.optimize.UglifyJsPlugin({
+      //   compress: {warnings: false},
+      //   output: {comments: false},
+      // }),
 
       // Copy src/assets/**/* to dist/
       new CopyWebpackPlugin([
