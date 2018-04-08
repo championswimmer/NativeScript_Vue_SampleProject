@@ -5,6 +5,7 @@ Vue.use(VueRouter);
 
 import Home from '../components/Home';
 import HelloWorld from '../components/HelloWorld';
+import Drawer from '../components/Drawer';
 import Counter from '../components/Counter';
 
 const router = new VueRouter({
@@ -22,6 +23,13 @@ const router = new VueRouter({
       component: HelloWorld,
       meta: {
         title: 'Hello World',
+      },
+    },
+    {
+      path: '/drawer',
+      component: Drawer,
+      meta: {
+        title: 'Drawer',
       },
     },
     {
